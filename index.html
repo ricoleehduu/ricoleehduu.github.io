@@ -11,6 +11,7 @@
     :root {
       --primary: #1a1a2e;
       --accent: #4361ee;
+      --accent-light: #eef0ff;
       --text: #333;
       --text-light: #666;
       --bg: #fafafa;
@@ -26,43 +27,29 @@
     }
     a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
     a:hover { opacity: 0.8; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
-    /* Layout */
-    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
-
-    /* Header */
+    /* Hero */
     .hero {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
       color: #fff;
       padding: 80px 0 60px;
     }
-    .hero .container {
-      display: flex;
-      gap: 48px;
-      align-items: center;
-    }
+    .hero .container { display: flex; gap: 48px; align-items: center; }
     .hero-avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
+      width: 160px; height: 160px; border-radius: 50%;
       background: rgba(255,255,255,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 64px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64px; flex-shrink: 0;
       border: 3px solid rgba(255,255,255,0.3);
     }
     .hero-info h1 { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
     .hero-info .subtitle { font-size: 1rem; opacity: 0.85; margin-bottom: 16px; }
     .hero-info .bio { font-size: 0.95rem; opacity: 0.8; line-height: 1.8; margin-bottom: 16px; }
-    .hero-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
     .hero-links a {
-      color: #fff;
-      font-size: 0.85rem;
-      padding: 6px 14px;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 20px;
+      color: #fff; font-size: 0.85rem; padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.3); border-radius: 20px;
       transition: all 0.2s;
     }
     .hero-links a:hover { background: rgba(255,255,255,0.15); opacity: 1; }
@@ -70,86 +57,109 @@
     /* Sections */
     .section { padding: 48px 0; }
     .section-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 24px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--accent);
-      display: inline-block;
+      font-size: 1.4rem; font-weight: 600; color: var(--primary);
+      margin-bottom: 24px; padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent); display: inline-block;
     }
 
     /* Research Interests */
     .interests { display: flex; flex-wrap: wrap; gap: 10px; }
     .tag {
-      background: #eef0ff;
-      color: var(--accent);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
+      background: var(--accent-light); color: var(--accent);
+      padding: 6px 16px; border-radius: 20px;
+      font-size: 0.85rem; font-weight: 500;
     }
+
+    /* Research Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .gallery-card {
+      background: var(--card-bg); border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: transform 0.2s;
+    }
+    .gallery-card:hover { transform: translateY(-2px); }
+    .gallery-card img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    .gallery-card .caption {
+      padding: 16px; font-size: 0.85rem; color: var(--text-light); line-height: 1.6;
+    }
+    .gallery-card .caption strong { color: var(--primary); }
 
     /* Publications */
     .pub-list { list-style: none; }
     .pub-item {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 16px 0; border-bottom: 1px solid var(--border);
     }
     .pub-item:last-child { border-bottom: none; }
     .pub-num {
-      display: inline-block;
-      width: 28px;
-      height: 28px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 28px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-right: 8px;
-      flex-shrink: 0;
+      display: inline-block; width: 28px; height: 28px;
+      background: var(--accent); color: #fff; border-radius: 50%;
+      text-align: center; line-height: 28px; font-size: 0.75rem;
+      font-weight: 600; margin-right: 8px; flex-shrink: 0;
     }
     .pub-title { font-weight: 600; color: var(--primary); }
     .pub-authors { color: var(--text-light); font-size: 0.9rem; margin: 4px 0; }
     .pub-venue { font-style: italic; color: var(--text); font-size: 0.9rem; }
     .pub-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-weight: 600;
-      margin-left: 6px;
+      display: inline-block; font-size: 0.7rem; padding: 2px 8px;
+      border-radius: 10px; font-weight: 600; margin-left: 6px;
     }
     .tag-q1 { background: #dcfce7; color: #166534; }
     .tag-q2 { background: #fef3c7; color: #92400e; }
     .tag-ccf { background: #ede9fe; color: #5b21b6; }
 
-    /* Education */
-    .edu-item {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .stat-card {
+      background: var(--card-bg); border-radius: 12px; padding: 24px 16px;
+      text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
+    .stat-num { font-size: 2rem; font-weight: 700; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+
+    /* Education */
+    .edu-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
     .edu-item:last-child { border-bottom: none; }
     .edu-degree { font-weight: 600; color: var(--primary); }
     .edu-school { color: var(--text); }
     .edu-detail { color: var(--text-light); font-size: 0.9rem; margin-top: 4px; }
 
+    /* Awards */
+    .award-item {
+      display: flex; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid var(--border); align-items: flex-start;
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-badge {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .award-text { font-size: 0.95rem; }
+    .award-text .level { color: var(--text-light); font-size: 0.85rem; }
+
+    /* Service */
+    .service-card {
+      background: var(--card-bg); border-radius: 12px; padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 16px;
+    }
+    .service-card h3 { font-size: 1rem; color: var(--primary); margin-bottom: 8px; }
+    .service-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+    .service-card .highlight { color: var(--accent); font-weight: 600; }
+
     /* Footer */
     .footer {
-      background: var(--primary);
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 32px 0;
-      font-size: 0.85rem;
+      background: var(--primary); color: rgba(255,255,255,0.6);
+      text-align: center; padding: 32px 0; font-size: 0.85rem;
     }
+    .footer a { color: rgba(255,255,255,0.8); }
 
-    /* Responsive */
     @media (max-width: 640px) {
       .hero .container { flex-direction: column; text-align: center; }
       .hero-avatar { width: 120px; height: 120px; font-size: 48px; }
       .hero-links { justify-content: center; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -161,11 +171,11 @@
     <div class="hero-avatar">ZL</div>
     <div class="hero-info">
       <h1>Zhi Li (李智)</h1>
-      <div class="subtitle">Ph.D. Candidate &middot; Hangzhou Dianzi University</div>
+      <div class="subtitle">Ph.D. Candidate &middot; Hangzhou Dianzi University (杭州电子科技大学)</div>
       <p class="bio">
-        Researching at the intersection of Computer Vision and Medical Image Analysis,
-        with a focus on efficient large vision models (MoE), edge deployment,
-        and multimodal agents for healthcare. Particularly interested in oral/dental AI applications.
+        Researching at the intersection of <strong>Computer Vision</strong> and <strong>Medical Image Analysis</strong>,
+        with a focus on efficient large vision models (MoE), edge deployment, and multimodal agents for healthcare.
+        Particularly interested in oral/dental AI applications and clinical deployment.
       </p>
       <div class="hero-links">
         <a href="mailto:zhi.li@hdu.edu.cn">&#9993; Email</a>
@@ -176,6 +186,30 @@
     </div>
   </div>
 </header>
+
+<!-- Stats -->
+<section class="section" style="padding-bottom: 0;">
+  <div class="container">
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">15K+</div>
+        <div class="stat-label">Challenge Participants</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">MICCAI STS Editions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Top 3</div>
+        <div class="stat-label">CVPR Global Rank</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Research Interests -->
 <section class="section">
@@ -188,16 +222,50 @@
       <span class="tag">Edge Deployment &amp; Inference Optimization</span>
       <span class="tag">Multimodal Agents for Healthcare</span>
       <span class="tag">Semi-supervised Learning</span>
+      <span class="tag">CBCT Metal Artifact Removal</span>
+      <span class="tag">3D Medical Imaging</span>
+    </div>
+  </div>
+</section>
+
+<!-- Research Highlights -->
+<section class="section" style="background: var(--card-bg);">
+  <div class="container">
+    <h2 class="section-title">Research Highlights</h2>
+    <div class="gallery">
+      <div class="gallery-card">
+        <img src="images/expertsmedsam_p2_0.png" alt="ExpertsMedSAM Architecture" loading="lazy">
+        <div class="caption">
+          <strong>ExpertsMedSAM</strong> &mdash; Mixture-of-Experts architecture for accelerating medical image segmentation. Dynamic feature routing to specialized experts enables efficient inference on edge devices.
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="images/sts24_p2_0.png" alt="MICCAI STS 2024 Challenge Overview" loading="lazy">
+        <div class="caption">
+          <strong>MICCAI STS 2024 Challenge</strong> &mdash; First semi-supervised instance-level tooth segmentation benchmark across panoramic X-ray and CBCT. SSL improves over supervised baselines by 60+ points.
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="images/gomp_p2_0.jpeg" alt="GOMPS System" loading="lazy">
+        <div class="caption">
+          <strong>GOMPS</strong> &mdash; Global attention-based ophthalmic image measurement and postoperative appearance prediction system. Deployed for clinical decision support.
+        </div>
+      </div>
+      <div class="gallery-card">
+        <img src="images/sts23_p4_0.jpeg" alt="STS 2023 Challenge Results" loading="lazy">
+        <div class="caption">
+          <strong>STS 2023 Challenge</strong> &mdash; Semi-supervised tooth segmentation benchmark with 6500+ panoramic images and 580+ CBCT volumes. Top teams achieve 93+ Dice on 2D tasks.
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Selected Publications -->
-<section class="section" style="background: var(--card-bg);">
+<section class="section">
   <div class="container">
     <h2 class="section-title">Selected Publications</h2>
     <ul class="pub-list">
-
       <li class="pub-item">
         <div>
           <span class="pub-num">1</span>
@@ -205,9 +273,8 @@
           <span class="pub-tag tag-q1">SCI Q1 Top</span>
         </div>
         <div class="pub-authors"><strong>Zhi Li</strong>, Yaqi Wang&#8727;&#8224;, Chengyu Wu, Jun Liu, et al.</div>
-        <div class="pub-venue">Medical Image Analysis (MedIA), Volume 110, 2026</div>
+        <div class="pub-venue">Medical Image Analysis (MedIA), Volume 110, 2026 &middot; Citations: 4</div>
       </li>
-
       <li class="pub-item">
         <div>
           <span class="pub-num">2</span>
@@ -215,9 +282,8 @@
           <span class="pub-tag tag-q2">Nature Sub-journal</span>
         </div>
         <div class="pub-authors"><strong>Zhi Li</strong>, Yaqi Wang&#8727;&#8224;, et al.</div>
-        <div class="pub-venue">Scientific Data (Nature旗下), 2026</div>
+        <div class="pub-venue">Scientific Data (Nature旗下), 2026 &middot; Open Access Benchmark</div>
       </li>
-
       <li class="pub-item">
         <div>
           <span class="pub-num">3</span>
@@ -227,7 +293,6 @@
         <div class="pub-authors"><strong>Zhi Li</strong>, Yaqi Wang&#8727;&#8224;, et al.</div>
         <div class="pub-venue">Scientific Data (Nature旗下), 2026</div>
       </li>
-
       <li class="pub-item">
         <div>
           <span class="pub-num">4</span>
@@ -237,7 +302,6 @@
         <div class="pub-authors">X. Chen, ..., <strong>Zhi Li</strong>, et al.</div>
         <div class="pub-venue">IEEE Transactions on Medical Imaging (TMI), 2025 &middot; Citations: 20</div>
       </li>
-
       <li class="pub-item">
         <div>
           <span class="pub-num">5</span>
@@ -247,27 +311,51 @@
         <div class="pub-authors"><strong>Zhi Li</strong> (First Author)</div>
         <div class="pub-venue">MICCAI 2025 (Book Chapter / LNCS)</div>
       </li>
-
       <li class="pub-item">
         <div>
           <span class="pub-num">6</span>
+          <span class="pub-title">GOMPS: Global Attention-based Ophthalmic Image Measurement and Postoperative Appearance Prediction System</span>
+          <span class="pub-tag tag-q1">SCI Q1 Top</span>
+        </div>
+        <div class="pub-authors">..., <strong>Zhi Li</strong>&#8727; (co-first), et al.</div>
+        <div class="pub-venue">Expert Systems with Applications, 2025 &middot; Citations: 10</div>
+      </li>
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">7</span>
+          <span class="pub-title">PGKD-Net: Prior-guided and Knowledge Diffusive Network for Choroid Segmentation</span>
+          <span class="pub-tag tag-q2">SCI Q2</span>
+        </div>
+        <div class="pub-authors">..., <strong>Zhi Li</strong> (4th), et al.</div>
+        <div class="pub-venue">Artificial Intelligence in Medicine, 2025 &middot; Citations: 13</div>
+      </li>
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">8</span>
+          <span class="pub-title">MICCAI 2023 STS Challenge: A Retrospective Study of Semi-supervised Approaches for Teeth Segmentation</span>
+          <span class="pub-tag tag-q1">SCI Q1 Top</span>
+        </div>
+        <div class="pub-authors">Yaqi Wang, et al., <strong>Zhi Li</strong>, et al.</div>
+        <div class="pub-venue">Pattern Recognition (PR), Volume 170, 2026</div>
+      </li>
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">9</span>
           <span class="pub-title">AgentMAR: Towards Clinically-Aligned Evaluation of Dental CBCT Reconstruction via Agentic Memory</span>
           <span class="pub-tag tag-ccf">Submitted</span>
         </div>
         <div class="pub-authors"><strong>Zhi Li</strong>, Yaqi Wang, Xiaoyang Yu, Lan Feng, Huiyu Zhou, Shuai Wang&#8224;</div>
         <div class="pub-venue">CIKM 2026 (Submitted 2026-05)</div>
       </li>
-
     </ul>
     <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-light);">
-      Full list of 12 publications available on
-      <a href="https://scholar.google.com">Google Scholar</a>.
+      Full list of 12 publications on <a href="https://scholar.google.com">Google Scholar</a>.
     </p>
   </div>
 </section>
 
 <!-- Education -->
-<section class="section">
+<section class="section" style="background: var(--card-bg);">
   <div class="container">
     <h2 class="section-title">Education</h2>
     <div class="edu-item">
@@ -278,56 +366,104 @@
         Visiting Researcher: University of Leicester, UK (Advisor: Prof. Huiyu Zhou)
       </div>
     </div>
+    <div class="edu-item">
+      <div class="edu-degree">M.S. in Computer Science</div>
+      <div class="edu-school">Hangzhou Dianzi University (杭州电子科技大学)</div>
+    </div>
   </div>
 </section>
 
-<!-- Honors -->
-<section class="section" style="background: var(--card-bg);">
+<!-- Honors & Awards -->
+<section class="section">
   <div class="container">
     <h2 class="section-title">Honors &amp; Awards</h2>
-    <ul class="pub-list">
-      <li class="pub-item">
-        <span class="pub-num" style="background:#dc2626;">1</span>
+    <div class="award-item">
+      <div class="award-badge" style="background:#dc2626;">1</div>
+      <div class="award-text">
         <strong>Master's National Scholarship (硕士研究生国家奖学金)</strong>
-        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; National, Top 2%</span>
-      </li>
-      <li class="pub-item">
-        <span class="pub-num" style="background:#ea580c;">2</span>
+        <div class="level">National &middot; Top 2% &middot; China's highest honor for master's students</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-badge" style="background:#ea580c;">2</div>
+      <div class="award-text">
         <strong>CVPR 2024 SAM on Laptop Challenge &mdash; Global 3rd Place</strong>
-        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; International, CCF-A</span>
-      </li>
-      <li class="pub-item">
-        <span class="pub-num" style="background:#ca8a04;">3</span>
+        <div class="level">International &middot; CCF-A Conference &middot; Scribble Track</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-badge" style="background:#ca8a04;">3</div>
+      <div class="award-text">
         <strong>Huawei Developer Contest &mdash; National 1st Prize</strong>
-        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; National, 3rd / 16 Teams</span>
-      </li>
-      <li class="pub-item">
-        <span class="pub-num" style="background:#65a30d;">4</span>
+        <div class="level">National &middot; 3rd / 16 Teams &middot; Ascend/Kunpeng Ecosystem</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-badge" style="background:#65a30d;">4</div>
+      <div class="award-text">
         <strong>Huawei Scholarship (华为奖学金)</strong>
-        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; National (Enterprise)</span>
-      </li>
-      <li class="pub-item">
-        <span class="pub-num" style="background:#0891b2;">5</span>
+        <div class="level">National (Enterprise) &middot; Top-tier ICT Innovation Talent</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-badge" style="background:#0891b2;">5</div>
+      <div class="award-text">
         <strong>CAST Young Talent Support Program for Doctoral Students</strong>
-        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; National</span>
-      </li>
-    </ul>
+        <div class="level">National &middot; China Association for Science and Technology</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-badge" style="background:#7c3aed;">6</div>
+      <div class="award-text">
+        <strong>Ascend AI Innovation Contest &mdash; Zhejiang Silver Award</strong>
+        <div class="level">Provincial &middot; Huawei Ascend AI Ecosystem</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <div class="award-badge" style="background:#be185d;">7</div>
+      <div class="award-text">
+        <strong>China Collegiate Computing Contest &mdash; National 2nd Prize</strong>
+        <div class="level">National &middot; MOE-sponsored</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Academic Service -->
-<section class="section">
+<section class="section" style="background: var(--card-bg);">
   <div class="container">
     <h2 class="section-title">Academic Service</h2>
-    <p style="margin-bottom: 12px;">
-      <strong>Core Organizer &amp; Chair</strong> &mdash; MICCAI STS Challenge Series &amp; ODIN Workshop (2023&ndash;2026, 4 consecutive years)
-    </p>
-    <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.8;">
-      Managed a global community of <strong>15,000+ researchers</strong> from 10+ countries. Published challenge summary papers in
-      <em>Pattern Recognition</em> (IF 8.0) and <em>Medical Image Analysis</em> (IF 10.9), plus Springer LNCS proceedings.
-    </p>
-    <p style="margin-top: 12px; color: var(--text-light); font-size: 0.95rem;">
-      <strong>Peer Reviewer:</strong> npj Digital Medicine, Medical Image Analysis, Pattern Recognition
+    <div class="service-card">
+      <h3>Core Organizer &amp; Chair &mdash; MICCAI STS Challenge Series &amp; ODIN Workshop</h3>
+      <p>
+        <span class="highlight">2023 &ndash; 2026 (4 consecutive years)</span><br>
+        Directed the premier international challenge in semi-supervised dental image segmentation.
+        Managed a global community of <span class="highlight">15,000+ researchers</span> from 10+ countries.
+        Published challenge summary papers in <em>Pattern Recognition</em> (IF 8.0) and
+        <em>Medical Image Analysis</em> (IF 10.9), plus Springer LNCS proceedings.
+        Co-organized the ODIN Workshop (Oral and Dental Image Analysis) at MICCAI 2025.
+      </p>
+    </div>
+    <div class="service-card">
+      <h3>Peer Reviewer</h3>
+      <p>
+        Reviewer for <em>npj Digital Medicine</em>, <em>Medical Image Analysis</em>, <em>Pattern Recognition</em>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Clinical Collaboration -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Clinical Collaboration</h2>
+    <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text-light);">
+      Algorithms deployed in collaboration with top-tier hospitals including
+      <strong>Sir Run Run Shaw Hospital (Zhejiang University)</strong>,
+      <strong>Shanghai Ninth People's Hospital</strong>,
+      <strong>West China School of Stomatology</strong>,
+      and <strong>Qiantang Dental</strong>.
+      Research bridges the gap between computational methods and real clinical needs.
     </p>
   </div>
 </section>
@@ -337,11 +473,10 @@
   <div class="container">
     <p>&copy; 2026 Zhi Li &middot; Hangzhou Dianzi University</p>
     <p style="margin-top: 4px;">
-      <a href="mailto:zhi.li@hdu.edu.cn" style="color: rgba(255,255,255,0.8);">zhi.li@hdu.edu.cn</a>
-      &middot;
-      <a href="https://github.com/ricoleehduu" style="color: rgba(255,255,255,0.8);">GitHub</a>
-      &middot;
-      <a href="https://scholar.google.com" style="color: rgba(255,255,255,0.8);">Google Scholar</a>
+      <a href="mailto:zhi.li@hdu.edu.cn">zhi.li@hdu.edu.cn</a> &middot;
+      <a href="https://github.com/ricoleehduu">GitHub</a> &middot;
+      <a href="https://scholar.google.com">Google Scholar</a> &middot;
+      <a href="https://orcid.org/0000-0002-8789-0151">ORCID</a>
     </p>
   </div>
 </footer>
