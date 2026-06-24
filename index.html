@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zhi Li - Hangzhou Dianzi University</title>
+  <meta name="description" content="Zhi Li - Ph.D. Candidate at Hangzhou Dianzi University. Research on Computer Vision, Medical Image Analysis, and Efficient Large Models.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --accent: #4361ee;
+      --text: #333;
+      --text-light: #666;
+      --bg: #fafafa;
+      --card-bg: #fff;
+      --border: #e8e8e8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+
+    /* Layout */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* Header */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 80px 0 60px;
+    }
+    .hero .container {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      flex-shrink: 0;
+      border: 3px solid rgba(255,255,255,0.3);
+    }
+    .hero-info h1 { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+    .hero-info .subtitle { font-size: 1rem; opacity: 0.85; margin-bottom: 16px; }
+    .hero-info .bio { font-size: 0.95rem; opacity: 0.8; line-height: 1.8; margin-bottom: 16px; }
+    .hero-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-links a {
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .hero-links a:hover { background: rgba(255,255,255,0.15); opacity: 1; }
+
+    /* Sections */
+    .section { padding: 48px 0; }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 24px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* Research Interests */
+    .interests { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      background: #eef0ff;
+      color: var(--accent);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Publications */
+    .pub-list { list-style: none; }
+    .pub-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-num {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    .pub-title { font-weight: 600; color: var(--primary); }
+    .pub-authors { color: var(--text-light); font-size: 0.9rem; margin: 4px 0; }
+    .pub-venue { font-style: italic; color: var(--text); font-size: 0.9rem; }
+    .pub-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .tag-q1 { background: #dcfce7; color: #166534; }
+    .tag-q2 { background: #fef3c7; color: #92400e; }
+    .tag-ccf { background: #ede9fe; color: #5b21b6; }
+
+    /* Education */
+    .edu-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-degree { font-weight: 600; color: var(--primary); }
+    .edu-school { color: var(--text); }
+    .edu-detail { color: var(--text-light); font-size: 0.9rem; margin-top: 4px; }
+
+    /* Footer */
+    .footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 0;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero .container { flex-direction: column; text-align: center; }
+      .hero-avatar { width: 120px; height: 120px; font-size: 48px; }
+      .hero-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-avatar">ZL</div>
+    <div class="hero-info">
+      <h1>Zhi Li (李智)</h1>
+      <div class="subtitle">Ph.D. Candidate &middot; Hangzhou Dianzi University</div>
+      <p class="bio">
+        Researching at the intersection of Computer Vision and Medical Image Analysis,
+        with a focus on efficient large vision models (MoE), edge deployment,
+        and multimodal agents for healthcare. Particularly interested in oral/dental AI applications.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:zhi.li@hdu.edu.cn">&#9993; Email</a>
+        <a href="https://orcid.org/0000-0002-8789-0151">ORCID</a>
+        <a href="https://github.com/ricoleehduu">GitHub</a>
+        <a href="https://scholar.google.com">Google Scholar</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Research Interests -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Research Interests</h2>
+    <div class="interests">
+      <span class="tag">Computer Vision</span>
+      <span class="tag">Medical Image Analysis</span>
+      <span class="tag">Efficient Large Vision Models (MoE)</span>
+      <span class="tag">Edge Deployment &amp; Inference Optimization</span>
+      <span class="tag">Multimodal Agents for Healthcare</span>
+      <span class="tag">Semi-supervised Learning</span>
+    </div>
+  </div>
+</section>
+
+<!-- Selected Publications -->
+<section class="section" style="background: var(--card-bg);">
+  <div class="container">
+    <h2 class="section-title">Selected Publications</h2>
+    <ul class="pub-list">
+
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">1</span>
+          <span class="pub-title">MICCAI STS 2024 Challenge: Semi-supervised Instance-level Tooth Segmentation in Panoramic X-ray and CBCT Images</span>
+          <span class="pub-tag tag-q1">SCI Q1 Top</span>
+        </div>
+        <div class="pub-authors"><strong>Zhi Li</strong>, Yaqi Wang&#8727;&#8224;, Chengyu Wu, Jun Liu, et al.</div>
+        <div class="pub-venue">Medical Image Analysis (MedIA), Volume 110, 2026</div>
+      </li>
+
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">2</span>
+          <span class="pub-title">Adults' Dental CBCT Images Dataset for Detecting and Classifying Missing Teeth</span>
+          <span class="pub-tag tag-q2">Nature Sub-journal</span>
+        </div>
+        <div class="pub-authors"><strong>Zhi Li</strong>, Yaqi Wang&#8727;&#8224;, et al.</div>
+        <div class="pub-venue">Scientific Data (Nature旗下), 2026</div>
+      </li>
+
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">3</span>
+          <span class="pub-title">BRAR-anchored Multimodal Dataset of Panoramic Radiographs for Periodontal Bone Resorption Grading</span>
+          <span class="pub-tag tag-q2">Nature Sub-journal</span>
+        </div>
+        <div class="pub-authors"><strong>Zhi Li</strong>, Yaqi Wang&#8727;&#8224;, et al.</div>
+        <div class="pub-venue">Scientific Data (Nature旗下), 2026</div>
+      </li>
+
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">4</span>
+          <span class="pub-title">SASAN: Spectrum-Axial Spatial Approach Networks for Medical Image Segmentation</span>
+          <span class="pub-tag tag-q1">SCI Q1 Top</span>
+        </div>
+        <div class="pub-authors">X. Chen, ..., <strong>Zhi Li</strong>, et al.</div>
+        <div class="pub-venue">IEEE Transactions on Medical Imaging (TMI), 2025 &middot; Citations: 20</div>
+      </li>
+
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">5</span>
+          <span class="pub-title">ExpertsMedSAM: Faster Medical Image Segment Anything with Mixture-of-Experts</span>
+          <span class="pub-tag tag-ccf">CCF-B</span>
+        </div>
+        <div class="pub-authors"><strong>Zhi Li</strong> (First Author)</div>
+        <div class="pub-venue">MICCAI 2025 (Book Chapter / LNCS)</div>
+      </li>
+
+      <li class="pub-item">
+        <div>
+          <span class="pub-num">6</span>
+          <span class="pub-title">AgentMAR: Towards Clinically-Aligned Evaluation of Dental CBCT Reconstruction via Agentic Memory</span>
+          <span class="pub-tag tag-ccf">Submitted</span>
+        </div>
+        <div class="pub-authors"><strong>Zhi Li</strong>, Yaqi Wang, Xiaoyang Yu, Lan Feng, Huiyu Zhou, Shuai Wang&#8224;</div>
+        <div class="pub-venue">CIKM 2026 (Submitted 2026-05)</div>
+      </li>
+
+    </ul>
+    <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-light);">
+      Full list of 12 publications available on
+      <a href="https://scholar.google.com">Google Scholar</a>.
+    </p>
+  </div>
+</section>
+
+<!-- Education -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="edu-item">
+      <div class="edu-degree">Ph.D. in Cyberspace Security</div>
+      <div class="edu-school">Hangzhou Dianzi University (杭州电子科技大学), 2025 &ndash; Present</div>
+      <div class="edu-detail">
+        Advisor: Prof. Shuai Wang (National High-Level Young Talent)<br>
+        Visiting Researcher: University of Leicester, UK (Advisor: Prof. Huiyu Zhou)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Honors -->
+<section class="section" style="background: var(--card-bg);">
+  <div class="container">
+    <h2 class="section-title">Honors &amp; Awards</h2>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-num" style="background:#dc2626;">1</span>
+        <strong>Master's National Scholarship (硕士研究生国家奖学金)</strong>
+        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; National, Top 2%</span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num" style="background:#ea580c;">2</span>
+        <strong>CVPR 2024 SAM on Laptop Challenge &mdash; Global 3rd Place</strong>
+        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; International, CCF-A</span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num" style="background:#ca8a04;">3</span>
+        <strong>Huawei Developer Contest &mdash; National 1st Prize</strong>
+        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; National, 3rd / 16 Teams</span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num" style="background:#65a30d;">4</span>
+        <strong>Huawei Scholarship (华为奖学金)</strong>
+        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; National (Enterprise)</span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-num" style="background:#0891b2;">5</span>
+        <strong>CAST Young Talent Support Program for Doctoral Students</strong>
+        <span style="color:var(--text-light); font-size:0.9rem;"> &mdash; National</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Academic Service -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Academic Service</h2>
+    <p style="margin-bottom: 12px;">
+      <strong>Core Organizer &amp; Chair</strong> &mdash; MICCAI STS Challenge Series &amp; ODIN Workshop (2023&ndash;2026, 4 consecutive years)
+    </p>
+    <p style="color: var(--text-light); font-size: 0.95rem; line-height: 1.8;">
+      Managed a global community of <strong>15,000+ researchers</strong> from 10+ countries. Published challenge summary papers in
+      <em>Pattern Recognition</em> (IF 8.0) and <em>Medical Image Analysis</em> (IF 10.9), plus Springer LNCS proceedings.
+    </p>
+    <p style="margin-top: 12px; color: var(--text-light); font-size: 0.95rem;">
+      <strong>Peer Reviewer:</strong> npj Digital Medicine, Medical Image Analysis, Pattern Recognition
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 Zhi Li &middot; Hangzhou Dianzi University</p>
+    <p style="margin-top: 4px;">
+      <a href="mailto:zhi.li@hdu.edu.cn" style="color: rgba(255,255,255,0.8);">zhi.li@hdu.edu.cn</a>
+      &middot;
+      <a href="https://github.com/ricoleehduu" style="color: rgba(255,255,255,0.8);">GitHub</a>
+      &middot;
+      <a href="https://scholar.google.com" style="color: rgba(255,255,255,0.8);">Google Scholar</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
